@@ -30,7 +30,8 @@ final class RestaurantManager {
             Restaurant(id: "2", title: "Pasta Palace", cuisine: .italian),
             Restaurant(id: "3", title: "Sushi Heaven", cuisine: .american),
             Restaurant(id: "4", title: "Puzata Hata", cuisine: .ukrainian),
-            Restaurant(id: "5", title: "Frog House", cuisine: .french)
+            Restaurant(id: "5", title: "Frog House", cuisine: .french),
+            Restaurant(id: "6", title: "Steak House", cuisine: .american)
         ]
     }
     
@@ -49,7 +50,11 @@ final class SearchableModifierViewModel: ObservableObject {
     var cancellables: Set<AnyCancellable> = []
     
     var isSearching: Bool {
-        !searchText.isEmpty
+        !searchText.isEmpty || selection != .all
+    }
+    
+    var showSuggestions: Bool {
+        searchText.count < 3
     }
     
     enum SearchScope: Hashable {
@@ -72,21 +77,28 @@ final class SearchableModifierViewModel: ObservableObject {
     
     private func searchRestaurants() {
         $searchText
+            .combineLatest($selection)
             .debounce(for: 0.5, scheduler: DispatchQueue.main)
-            .sink { [weak self] text in
-                self?.filterRestaurants(text)
+            .sink { [weak self] (text, option) in
+                self?.filterRestaurants(text, option: option)
             }
             .store(in: &cancellables)
-        
     }
     
-    private func filterRestaurants(_ text: String) {
+    private func filterRestaurants(_ text: String, option: SearchScope) {
         // !!!!!!!!!!!!!!!
         guard !text.isEmpty else {
+            if option != .all {
+                filteredRestaurants = allRestaurants.filter({ $0.cuisine.rawValue.lowercased() == option.title.lowercased() })
+            }
             return
         }
         
-        filteredRestaurants = allRestaurants.filter { $0.title.localizedCaseInsensitiveContains(text) || $0.cuisine.rawValue.localizedStandardContains(text) }
+        if option == .all {
+            filteredRestaurants = allRestaurants.filter { ($0.title.localizedCaseInsensitiveContains(text) || $0.cuisine.rawValue.localizedStandardContains(text)) }
+        } else {
+            filteredRestaurants = allRestaurants.filter { ($0.title.localizedCaseInsensitiveContains(text) || $0.cuisine.rawValue.localizedStandardContains(text)) && option.title.lowercased() == $0.cuisine.rawValue.lowercased() }
+        }
     }
     
     func loadRestaurants() async {
@@ -101,6 +113,47 @@ final class SearchableModifierViewModel: ObservableObject {
         }
     }
     
+    func getSearchSuggestions() -> [String] {
+        guard showSuggestions else { return [] }
+        
+        var suggestions: [String] = []
+        
+        let search = searchText.lowercased()
+        if search.contains("pa") {
+            suggestions.append("Pasta")
+        }
+        if search.contains("su") {
+            suggestions.append("Sushi")
+        }
+        if search.contains("st") {
+            suggestions.append("Steak")
+        }
+        if search.contains("pu") {
+            suggestions.append("Puzata Hata")
+        }
+        if search.contains("fr") {
+            suggestions.append("Frog")
+        }
+        
+        suggestions.append("Sushi")
+        
+        return suggestions
+    }
+    
+    func getRestSuggestions() -> [Restaurant] {
+        guard showSuggestions else { return [] }
+        
+        var suggestions: [Restaurant] = []
+        
+        let search = searchText.lowercased()
+        if search.contains("ita") {
+            suggestions.append(contentsOf: allRestaurants.filter({ $0.cuisine == .italian }))
+        }
+
+        
+        return suggestions
+    }
+    
 }
 
 struct SearchableModifier: View {
@@ -111,7 +164,9 @@ struct SearchableModifier: View {
         ScrollView(content: {
             VStack(spacing: 20) {
                 ForEach(vm.isSearching ? vm.filteredRestaurants : vm.allRestaurants) { rest in
-                    restaurantRow(rest)
+                    NavigationLink(value: rest) {
+                        restaurantRow(rest)
+                    }
                 }
             }
             .padding(.leading, 16)
@@ -120,12 +175,27 @@ struct SearchableModifier: View {
         .searchScopes($vm.selection, scopes: {
             ForEach(vm.allScopeOptions, id: \.self) { scope in
                     Text(scope.title)
+                    .tag(scope)
             }
         })
-        .navigationBarTitleDisplayMode(.inline)
+        .searchSuggestions({
+            ForEach(vm.getSearchSuggestions(), id: \.self) { sugg in
+                Text(sugg)
+                    .searchCompletion(sugg)
+            }
+            ForEach(vm.getRestSuggestions(), id: \.self) { sugg in
+                NavigationLink(value: sugg) {
+                    Text(sugg.title)
+                }
+            }
+        })
+//        .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Restaurants")
         .task {
             await vm.loadRestaurants()
+        }
+        .navigationDestination(for: Restaurant.self) { rest in
+            Text(rest.cuisine.rawValue)
         }
     }
     
@@ -137,6 +207,7 @@ struct SearchableModifier: View {
                 .font(.caption)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .tint(.primary)
     }
 }
 

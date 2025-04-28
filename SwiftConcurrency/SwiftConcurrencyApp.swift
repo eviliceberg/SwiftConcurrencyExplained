@@ -11,7 +11,9 @@ import SwiftUI
 struct SwiftConcurrencyApp: App {
     var body: some Scene {
         WindowGroup {
-            Actors()
+            NavigationStack {
+                SearchableModifier()
+            }
         }
         
     }
