@@ -6,11 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		F4692E922DCBC2AC002082F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4C2A95F2DB7A1E7008DD02D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4C2A9662DB7A1E7008DD02D;
+			remoteInfo = SwiftConcurrency;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		F4692E8E2DCBC2AC002082F1 /* SwiftConcurrency_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftConcurrency_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C2A9672DB7A1E7008DD02D /* SwiftConcurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftConcurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		F4692E8F2DCBC2AC002082F1 /* SwiftConcurrency_Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SwiftConcurrency_Tests;
+			sourceTree = "<group>";
+		};
 		F4C2A9692DB7A1E7008DD02D /* SwiftConcurrency */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SwiftConcurrency;
@@ -19,6 +35,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F4692E8B2DCBC2AC002082F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4C2A9642DB7A1E7008DD02D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				F4C2A9692DB7A1E7008DD02D /* SwiftConcurrency */,
+				F4692E8F2DCBC2AC002082F1 /* SwiftConcurrency_Tests */,
 				F4C2A9682DB7A1E7008DD02D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				F4C2A9672DB7A1E7008DD02D /* SwiftConcurrency.app */,
+				F4692E8E2DCBC2AC002082F1 /* SwiftConcurrency_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +73,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F4692E8D2DCBC2AC002082F1 /* SwiftConcurrency_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4692E942DCBC2AC002082F1 /* Build configuration list for PBXNativeTarget "SwiftConcurrency_Tests" */;
+			buildPhases = (
+				F4692E8A2DCBC2AC002082F1 /* Sources */,
+				F4692E8B2DCBC2AC002082F1 /* Frameworks */,
+				F4692E8C2DCBC2AC002082F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4692E932DCBC2AC002082F1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F4692E8F2DCBC2AC002082F1 /* SwiftConcurrency_Tests */,
+			);
+			name = SwiftConcurrency_Tests;
+			packageProductDependencies = (
+			);
+			productName = SwiftConcurrency_Tests;
+			productReference = F4692E8E2DCBC2AC002082F1 /* SwiftConcurrency_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F4C2A9662DB7A1E7008DD02D /* SwiftConcurrency */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4C2A9752DB7A1E9008DD02D /* Build configuration list for PBXNativeTarget "SwiftConcurrency" */;
@@ -77,9 +125,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1620;
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					F4692E8D2DCBC2AC002082F1 = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = F4C2A9662DB7A1E7008DD02D;
+					};
 					F4C2A9662DB7A1E7008DD02D = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -100,11 +152,19 @@
 			projectRoot = "";
 			targets = (
 				F4C2A9662DB7A1E7008DD02D /* SwiftConcurrency */,
+				F4692E8D2DCBC2AC002082F1 /* SwiftConcurrency_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F4692E8C2DCBC2AC002082F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4C2A9652DB7A1E7008DD02D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +175,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F4692E8A2DCBC2AC002082F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4C2A9632DB7A1E7008DD02D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +191,53 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F4692E932DCBC2AC002082F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4C2A9662DB7A1E7008DD02D /* SwiftConcurrency */;
+			targetProxy = F4692E922DCBC2AC002082F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		F4692E952DCBC2AC002082F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3Z5R6WRVTZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.evilicebergs.SwiftConcurrency-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftConcurrency.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftConcurrency";
+			};
+			name = Debug;
+		};
+		F4692E962DCBC2AC002082F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3Z5R6WRVTZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.evilicebergs.SwiftConcurrency-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftConcurrency.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftConcurrency";
+			};
+			name = Release;
+		};
 		F4C2A9732DB7A1E9008DD02D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -305,6 +418,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F4692E942DCBC2AC002082F1 /* Build configuration list for PBXNativeTarget "SwiftConcurrency_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4692E952DCBC2AC002082F1 /* Debug */,
+				F4692E962DCBC2AC002082F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F4C2A9622DB7A1E7008DD02D /* Build configuration list for PBXProject "SwiftConcurrency" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
