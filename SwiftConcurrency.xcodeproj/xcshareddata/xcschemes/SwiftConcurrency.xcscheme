@@ -41,6 +41,17 @@
                ReferencedContainer = "container:SwiftConcurrency.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F4FBF3942DD0C2D2005DB10F"
+               BuildableName = "SwiftConcurrency_UITests.xctest"
+               BlueprintName = "SwiftConcurrency_UITests"
+               ReferencedContainer = "container:SwiftConcurrency.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -64,6 +75,19 @@
             ReferencedContainer = "container:SwiftConcurrency.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-UITest_StartSignedIn"
+            isEnabled = "NO">
+         </CommandLineArgument>
+      </CommandLineArguments>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "-UITest_StartSignedIn2"
+            value = "true"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
