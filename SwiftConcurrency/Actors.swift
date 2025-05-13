@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 class MyDataManager {
     
@@ -75,14 +76,20 @@ struct BrowseView: View {
     
     let manager = MyActorDataManager.shared
     @State private var text: String = ""
+    @State private var text2: String = ""
     let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+    let timer2 = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack {
             Color.yellow.opacity(0.5).ignoresSafeArea()
-            
-            Text(text)
-                .font(.headline)
+            VStack {
+                Text(text)
+                    .font(.headline)
+                
+                Text(text2)
+                    .font(.headline)
+            }
         }
         .onReceive(timer) { _ in
             Task {
@@ -98,6 +105,10 @@ struct BrowseView: View {
 //                }
 //            }
         }
+        .onReceive(timer2) { output in
+            text2 = output.description
+        }
+        
     }
 }
 
