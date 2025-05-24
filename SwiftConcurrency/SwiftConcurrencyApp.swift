@@ -17,7 +17,7 @@ struct SwiftConcurrencyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AnyTransitionTest()
+            Ex2()
         }
         
     }

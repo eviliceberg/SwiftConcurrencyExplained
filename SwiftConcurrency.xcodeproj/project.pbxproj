@@ -29,6 +29,16 @@
 		F4FBF3952DD0C2D2005DB10F /* SwiftConcurrency_UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftConcurrency_UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F467BBE32DDA4531007471C3 /* Exceptions for "SwiftConcurrency" folder in "SwiftConcurrency" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F4C2A9662DB7A1E7008DD02D /* SwiftConcurrency */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F4692E8F2DCBC2AC002082F1 /* SwiftConcurrency_Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -37,6 +47,9 @@
 		};
 		F4C2A9692DB7A1E7008DD02D /* SwiftConcurrency */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F467BBE32DDA4531007471C3 /* Exceptions for "SwiftConcurrency" folder in "SwiftConcurrency" target */,
+			);
 			path = SwiftConcurrency;
 			sourceTree = "<group>";
 		};
@@ -437,6 +450,9 @@
 				DEVELOPMENT_TEAM = 3Z5R6WRVTZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftConcurrency/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To use app allow mic usage";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "To use features";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -466,6 +482,9 @@
 				DEVELOPMENT_TEAM = 3Z5R6WRVTZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftConcurrency/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To use app allow mic usage";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "To use features";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
