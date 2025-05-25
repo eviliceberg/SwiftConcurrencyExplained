@@ -11,7 +11,7 @@ struct CustomCurves: View {
     var body: some View {
         ZStack {
             WaterShape()
-                .fill(LinearGradient(colors: [.blue.opacity(0.5), Color.blue.opacity(0.7)], startPoint: .leading, endPoint: .trailing))
+                .fill(LinearGradient(colors: [.blue.opacity(0.9), Color.blue.opacity(0.7)], startPoint: .leading, endPoint: .trailing))
                 .ignoresSafeArea()
         }
     }
